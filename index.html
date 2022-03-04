@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+  <title>Document</title>
+  <style>
+    @import url('http://fonts.cdnfonts.com/css/roboto');
+
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    /* .scroll_bar_visible::selection {
+      background-color: rgb(218, 210, 210);
+    }
+
+    .scroll_bar_visible::-webkit-scrollbar {
+      width: 10px !important;
+      background-color: #2e313a;
+    }
+
+    .scroll_bar_visible::-webkit-scrollbar-thumb {
+      background-color: #a9f2ff;
+    } */
+
+    body {
+      overflow-x: hidden;
+    }
+
+    .container1 {
+      background-image: url('Background.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      height: 700px;
+    }
+
+    .container1 section {
+      width: inherit;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .navbar-section {
+      display: flex;
+      justify-content: flex-end;
+      padding: 1rem;
+    }
+
+    .navbar-section p,
+    a i,
+    button i {
+      color: rgb(59, 58, 58);
+      font-size: 1.4rem;
+
+    }
+
+    .navbar-section button {
+      background: none;
+      border: none;
+      outline: none;
+    }
+
+    .navbar-section p {
+      padding-right: 10px;
+    }
+
+    .navbar-section a {
+      padding-right: 10px;
+    }
+
+    .navbar-section a i {
+      font-size: 1.8rem;
+    }
+
+    .searchbar-section {
+      transform: translateY(300px);
+      display: flex;
+      justify-content: center;
+    }
+
+    .searchbar-section .searchbar {
+      position: absolute;
+      display: flex;
+    }
+
+    .searchbar input {
+      width: 30vw;
+      height: 2.3rem;
+      padding: 8px;
+      border: none;
+      outline: none;
+      border-radius: 10px;
+      background-color: rgba(255, 255, 255, 0.9);
+      font-size: .8rem;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .searchbar i {
+      color: rgba(75, 73, 73, 0.705);
+      position: relative;
+      top: 12px;
+      right: 30px;
+    }
+
+    @media (max-width:700px) {
+      .searchbar input {
+        width: 50vw;
+      }
+    }
+
+    @media (max-width:360px) {
+      .searchbar input {
+        width: 70vw;
+      }
+    }
+
+    .container2 {
+      background-color: #2e313a;
+      height: 550px;
+      display: none;
+    }
+
+    .container2 section {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    /* section .leftside {
+      width: 30vw;
+    } */
+
+    section .leftside img {
+      width: 40vw;
+      height: 400px;
+    }
+
+    section .rightside {
+      display: flex;
+      flex-direction: column;
+      color: white;
+    }
+
+    section .rightside h4 {
+      width: 50vw;
+      font-size: 1.8rem;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    section .rightside ul li {
+      font-family: 'Roboto', sans-serif;
+      font-family: 1rem;
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+
+    section .rightside a {
+      border: none;
+      text-decoration: none;
+      background-color: #6c63ff;
+      border-radius: 5px;
+      padding: .625rem 1.25rem;
+      color: white;
+      font-weight: bold;
+      margin-top: 0.625rem;
+      text-align: center;
+      width: 5.625rem;
+    }
+
+    section .rightside a:hover {
+      color: #6c63ff;
+      background-color: white;
+      box-shadow: 4px 4px 15px rgba(75, 73, 73, 0.705);
+    }
+
+    @media (max-width:790px) {
+      .container2 section {
+        flex-direction: column;
+        padding-bottom: 1rem;
+      }
+
+      .container2 section .leftside img {
+        width: 85vw;
+        height: 370px;
+      }
+
+      .container2 .rightside h4 {
+        width: 70vw;
+
+      }
+    }
+
+    @media (max-width:500px) {
+      .container2 section .leftside img {
+        width: 95vw;
+        height: 330px;
+      }
+
+      .container2 .rightside h4 {
+        font-size: 1.3rem;
+
+      }
+
+      .container2 .rightside ul li {
+        font-size: .85rem;
+      }
+    }
+
+    @media (max-width:420px) {
+      .container2 section .leftside img {
+        height: 250px;
+      }
+    }
+
+    @media(max-width:360px) {
+      .container2 section .leftside img {
+        width: 97vw;
+        height: 230px;
+      }
+
+      .container2 .rightside {
+        margin-left: 10px;
+      }
+
+      .container2 .rightside h4 {
+        font-size: 1.3rem;
+
+      }
+
+      .container2 .rightside ul li {
+        font-size: .75rem;
+      }
+
+      section .rightside a {
+        padding: .525rem 1.05rem;
+        color: white;
+        font-weight: bold;
+        margin-top: 0.625rem;
+        text-align: center;
+        width: 5.6rem;
+      }
+    }
+
+    @media(max-width:300px) {
+      .container2 section .leftside img {
+        width: 100vw;
+        height: 190px;
+      }
+
+      .container2 .rightside {
+        margin-left: 25px;
+      }
+
+      section .rightside a {
+        padding: .525rem 1.05rem;
+        color: white;
+        font-weight: bold;
+        margin-top: 0.625rem;
+        text-align: center;
+        width: 4.9rem;
+        font-size: 14px;
+      }
+
+      section .leftside {
+        margin-bottom: 5px;
+      }
+
+      .container2 .rightside h4 {
+        font-size: 1.1rem;
+
+      }
+
+      .container2 .rightside ul li {
+        font-size: .73rem;
+      }
+
+      .navbar-section p {
+        font-size: 1.1rem;
+      }
+
+      .navbar-section a i {
+        font-size: 1.4rem;
+      }
+
+      .navbar-section button i {
+        font-size: 1.1rem;
+      }
+
+      .container1 {
+        height: 500px;
+      }
+
+      .searchbar-section {
+        transform: translateY(150px);
+      }
+    }
+
+    .slider-container {
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      outline: none;
+      border: none;
+      text-decoration: none;
+      text-transform: capitalize;
+      -webkit-transition: .2s linear;
+      transition: .2s linear;
+      overflow-x: hidden;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 5rem;
+    }
+
+    .slider-container .box {
+      min-height: 100vh;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      background-size: cover !important;
+      background-position: center !important;
+      -webkit-box-pack: end;
+      -ms-flex-pack: end;
+      justify-content: flex-end;
+      padding: 2rem 5%;
+    }
+
+
+    .slider-container .box .content {
+      width: 50rem;
+    }
+
+    .slider-container .box .content span {
+      font-size: 3rem;
+      color: #10221b;
+      color: rgb(228, 225, 225);
+      text-shadow: 3px 3px 4px #10221b;
+    }
+
+    .slider-container .box .content h3 {
+      font-size: 2rem;
+      color: #219150;
+      padding-top: .5rem;
+      text-transform: uppercase;
+      text-shadow: 1px 1px 4px #10221b;
+    }
+
+    .slider-container .box .content p {
+      line-height: 2;
+      color: #10221b;
+      font-size: 1rem;
+      padding: 1rem 0;
+      color: white;
+      text-shadow: 1px 1px 4px #10221b;
+      font-weight: bold;
+
+    }
+
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+      font-size: 2rem;
+      color: #10221b;
+      color: #219150;
+    }
+
+    .btns {
+      margin-top: 1rem;
+      display: inline-block;
+      /* border: 0.2rem solid #10221b; */
+      color: #10221b;
+      color: white;
+      cursor: pointer;
+      background: rgba(16, 34, 27, 0.3);
+      backdrop-filter: blur(20px);
+      font-size: 1.2rem;
+      padding: 1rem 1.2rem;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: .3s all;
+    }
+
+    .btns:hover {
+      background: #219150;
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body class="scroll_bar_visible">
+  <div class="container1">
+    <section>
+      <div class="navbar-section">
+        <p>Profile</p>
+        <a href="#" target="_blank"><i class="fa-solid fa-circle-user"></i></a>
+        <button><i class="fa-solid fa-bars"></i></button>
+      </div>
+      <div class="searchbar-section">
+        <div class="searchbar">
+          <input type="search" name="state_search" id="state_search" placeholder="Search Your State">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+      </div>
+    </section>
+
+  </div>
+  <div class="container2">
+    <section>
+      <div class="leftside"><img src="gallery_section_background.jpg" alt=""></div>
+      <div class="rightside">
+        <h4>A genuine place to experience the rich heritage and culture of India</h4>
+        <ul>
+          <li>
+            online gallery to explore the culture of India
+          </li>
+          <li>
+            Experience the culute of India virtually,in your home
+          </li>
+        </ul>
+        <a href="gallery.html" target="_blank">Explore</a>
+      </div>
+    </section>
+  </div>
+  <div class="container3">
+    <section id="slider-container" class="slider-container">
+      <div class="swiper home-slider">
+
+        <div class="swiper-wrapper" id="swiper-wrapper-1">
+          <!-- Dynamic Sliders -->
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next" id="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+
+      </div>
+
+    </section>
+
+  </div>
+  <script src="index.js"></script>
+  <script src="location.js"></script> 
+  <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+  <script>
+    var index=0;
+    var swiper = new Swiper(".home-slider", {
+      allowSlideNext: true,
+      loop: true,
+      grabCursor: true,
+      autoplay: {
+        delay: 3000,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+
+      // console.log(swiper.activeIndex);
+    });
+    swiper.on('slideChange', function () {
+      console.log( swiper.activeIndex);
+      index = swiper.activeIndex;
+    });
+    console.log(index);
+
+
+  </script>
+</body>
+
+</html>
